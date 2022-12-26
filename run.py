@@ -4,7 +4,7 @@ Imports
 import gspread
 from google.oauth2.service_account import Credentials
 
-import words *
+import words
 import time
 
 SCOPE = [
@@ -22,3 +22,33 @@ result = SHEET.worksheet('result')
 
 data = result.get_all_values()
 # print(data)
+
+time.sleep(1)
+    print("\nWelcome to Hangman World!")
+    print("========================")
+    time.sleep(1)
+    print('''
+
+          +----+
+          |   \|
+          Ö    |
+         /|\   |
+          |    |
+         / \   |
+             =====\n'''
+          )
+
+    time.sleep(1)
+    while True:
+        player_name = input('Enter your name: ')
+        player_name = player_name.strip()
+        if len(player_name) == 0 or player_name.isspace():
+            print("This is not a valid name!")
+            continue
+        else:
+            break
+    time.sleep(1)  
+    print('\nHello {}. Wish you the best of luck! \n'.format(player_name))
+    time.sleep(1)
+    print('HANGED or SAVED? Let\'s test your guessing skills =D \n')
+    time.sleep(1)
