@@ -45,11 +45,15 @@ words = [
     'booking'
 ]
 
-hangman_stages = [
+def display_game_state(self):
+    """
+    Stages for the wrongly guessed letters
+    """
+    hangman_stages = [
 
             """
             +-------
-            |/
+            |/    
             |
             |
             |
@@ -58,7 +62,7 @@ hangman_stages = [
             """,
             """
             +-------+
-            |/
+            |/      
             |
             |
             |
@@ -125,7 +129,7 @@ hangman_stages = [
             |       Ö
             |      /I\\
             |       o
-            |      /
+            |      / 
           =====
             """,
             """
@@ -145,5 +149,9 @@ hangman_stages = [
             |       o
             |      / \\
           =====
-            """
-]
+            """            
+        ]
+  
+print(words)
+hangman_stages = display_game_state()
+print(hangman_stages)
