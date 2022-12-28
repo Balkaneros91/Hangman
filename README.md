@@ -56,9 +56,6 @@ A flow chart was created with the main purpose to map the steps to follow throug
 My game displays the following features:
 
 - Home Page
-- Main Menu
-- Instructions how to play hangman
-- Language Selection
 - Game Stages
 - Exit Game
 
@@ -68,30 +65,6 @@ My game displays the following features:
 
 - The home page displays the name of game, welcomes the user and briefly explains how to play the game.
 - Here the user will input his/her name to continue, once done the system will greet the player stating his/her name.
-
-## Main Menu
-
-![Hangman Main Menu](images/main_menu.png)
-
- - Once in the main menu, the player has three options:
-   * Read the game instructions
-   * Select the language before he/she start playing the game
-   * Exit the game if the player changes his/her mind
-
-## Instructions how to play hangman
-
-![Hangman Instructions](images/hangman_Instructions.png)
-
-- The instructions are clear to follow, and have been designed to cover all possible questions the user may have.
-
-## Language Selection
-
-![Language selection](images/language_selection.png)
-
- - Once this option has been selected, the user will be able to choose to guess the words in the following languages:
-   * English
-   * Spanish
-   * French
 
 ## Game Stages
 
@@ -108,8 +81,6 @@ My game displays the following features:
 ## Exit Game
 
 ![Exit Game](images/exit_game.png)
-
-- If this option is selected, thanks the user for the visit, and offers instructions on how to restart the game again.
 
 [Back to content list](<#contents>)
 
