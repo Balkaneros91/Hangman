@@ -3,6 +3,7 @@ Imports
 """
 import random
 import time
+import os
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -19,16 +20,15 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hangman_game')
 
-
 result = SHEET.worksheet('result')
-# Retrieve all the data from the worksheet
 data = result.get_all_values()
-# Print the header
 print("\nPrevious Game Results:")
-print("Date and Time\t\tPlayer\t\tWord\t\tWrong Guesses\t\tResult")
-# Iterate through the rows and print the data
-for row in data:
-    print(f"{row[0]}\t\t{row[1]}\t\t{row[2]}\t\t{row[3]}\t\t{row[4]}")
+print("Date\t\tPlayer\tWord\tWrong Guesses\t\tResult")
+# Get the last 5 rows of data or all rows if there are fewer than 5 rows
+last_five_rows = data[-5:] if len(data) >= 5 else data[:]
+# Iterate through the last 5 rows and print the values
+for row in last_five_rows:
+    print(f"{row[0]}\t{row[1]}\t{row[2]}\t\t{row[3]}\t\t{row[4]}")
 
 
 class Hangman:
@@ -54,15 +54,18 @@ class Hangman:
         while True:
             self.display_game_state()
             letter_or_word = input("Enter a letter or the whole word: \n")
+            letter_or_word = letter_or_word.lower()
             if letter_or_word == self.word:
                 self.correct_letters = list(self.word)
                 self.display_game_state()
                 print("You won in", self.wrong_guesses, "guesses! The word was:", self.word)
                 break
             if not letter_or_word.isalpha() or len(letter_or_word) != 1:
+                self.display_game_state()
                 print("Error: Please enter a single letter.")
                 continue
             if letter_or_word in self.correct_letters + self.incorrect_letters:
+                self.display_game_state()
                 print("Error: Already guessed letter. Please try different letter.")
                 continue
             if letter_or_word in self.word:
@@ -190,6 +193,16 @@ class Hangman:
           =====
             """      
         ]
+        """
+        if not letter_or_word.isalpha() or len(letter_or_word) != 1:
+            print("Error: Please enter a single letter.")
+            return  # Return early instead of using continue
+        if letter_or_word in self.correct_letters + self.incorrect_letters:
+            print("Error: Already guessed letter. Please try different letter.")
+            return  # Return early instead of using continue
+        """
+        # Clear the screen
+        os.system("cls" if os.name == "nt" else "clear")
 
         print(hangman_stages[self.wrong_guesses])
         print("Word: " + " ".join([c if c in self.correct_letters else "_" for c in self.word]))
@@ -203,7 +216,6 @@ if __name__ == "__main__":
     print("========================")
     time.sleep(1)
     print('''
-
           +----+
           |   \|
           Ö    |
@@ -212,10 +224,10 @@ if __name__ == "__main__":
          / \   |
              =====\n'''
           )
-    time.sleep(1)
     while True:
         player_name = input('Enter your name: \n')
         player_name = player_name.strip()
+        player_name = player_name.upper()
         if len(player_name) == 0 or player_name.isspace():
             print("This is not a valid name!")
             continue
