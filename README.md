@@ -2,13 +2,13 @@
 
 My Hangman game is based on logic: one player at the time. It's a Python terminal game, which runs in the mock terminal created by Code Institute and is deployed on Heroku. My game contains functions to check if the user input is valid, to avoid any kind of confusion in the game flow. The player can guess only one letter at the time or, if lucky, the whole word. If case the guessed a letter is a duplicate or triplicate, all the empty blanks will be fill-in or in case of repeated guess a warning message will pop-up in the mock terminal. Once the max number of attempts is reached and the player fails to guess the word, then the game is lost and it's a game over.
 
-The goal of this project is to put together everything I have learned throughout the past month. Combined from, Python course by CI and the things my mentor has showed me, this project is a demonstration of my knowledge acquired throughout the Python Essential module and 'Love Sandwiches' walkthrough project.
+The goal of this project is to put together everything I have learned throughout the past month. Combined from, Python Essential modules by CI and the things my mentor has showed me, this project is a demonstration of my knowledge acquired throughout the Python course and 'Love Sandwiches' walkthrough project.
 
 ## Live Site
 
-You can view the live deployed game here: [Hangman](https://pp3-hangman-game.herokuapp.com/) XXX
+You can view the live deployed game here: [Hangman_Game](https://hangman-saveman.herokuapp.com/)
 
-![Hangman amiresponsive](images/hangman_live_site.png) XXX
+![Hangman amiresponsive](images/amiresponsive_pp3.png)
 
 # Contents
 
